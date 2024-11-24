@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaLOL - Download Instagram Videos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #ffe4f2;
+            color: #333;
+        }
+        header {
+            background-color: #ff80c0;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        .input-box {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 500px;
+        }
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ff80c0;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .input-box button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #ff80c0;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+        }
+        .input-box button:hover {
+            background-color: #ff5090;
+        }
+        .note {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #555;
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        InstaLOL - Download Instagram Videos
+    </header>
+    <main>
+        <div class="input-box">
+            <input type="text" id="video-link" placeholder="Paste your Instagram video link here">
+            <button id="download-btn">Download</button>
+        </div>
+        <div class="note">
+            <p><strong>Note:</strong> You must subscribe to our channel to download the video.</p>
+            <a href="https://youtube.com/@hades_rift?sub_confirmation=1" target="_blank" style="color: #ff5090;">Click here to Subscribe</a>
+        </div>
+    </main>
+    <footer>
+        © 2024 InstaLOL - All Rights Reserved.
+    </footer>
+    <script>
+        document.getElementById("download-btn").addEventListener("click", function() {
+            const link = document.getElementById("video-link").value.trim();
+
+            if (!link) {
+                alert("Please paste a valid Instagram video link.");
+                return;
+            }
+
+            // Step 1: Open subscription confirmation
+            const confirmed = confirm("Have you subscribed to Hades Rift? Click OK if yes.");
+            if (confirmed) {
+                // Step 2: Redirect for video download
+                alert("Thank you for subscribing! Your download will now start.");
+                window.location.href = `https://yourserver.com/download?video=${encodeURIComponent(link)}`;
+            } else {
+                alert("Please subscribe first to continue.");
+                window.open("https://youtube.com/@hades_rift?sub_confirmation=1", "_blank");
+            }
+        });
+    </script>
+</body>
+</html>
